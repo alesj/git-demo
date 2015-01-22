@@ -6,9 +6,9 @@
   <artifactId>git-demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <scm>
-    <connection>scm:git:git@github.com:ozarov/git-demo.git</connection>
-    <developerConnection>scm:git:git@github.com:ozarov/git-demo.git</developerConnection>
-    <url>https://github.com/ozarov/git-demo</url>
+    <connection>scm:git:git@github.com:aozarov/git-demo.git</connection>
+    <developerConnection>scm:git:git@github.com:aozarov/git-demo.git</developerConnection>
+    <url>https://github.com/aozarov/git-demo</url>
     <tag>HEAD</tag>
   </scm>
   <ciManagement>
@@ -101,6 +101,12 @@
       <url>http://repo.maven.apache.org/maven2</url>
     </repository>
   </repositories>
+  <licenses>
+    <license>
+      <name>GCloud Java Software License</name>
+      <url>https://raw.github.com/aozarov/git-demo/master/LICENSE.md</url>
+    </license>
+  </licenses>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -210,7 +216,7 @@
       <plugin>
         <groupId>com.github.github</groupId>
 	<artifactId>site-maven-plugin</artifactId>
-	<version>0.9</version>
+	<version>0.10</version>
 	<configuration>
 	  <message>Creating site for ${project.version}</message>
 	</configuration>

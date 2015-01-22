@@ -5,6 +5,20 @@
   <groupId>com.ozarov.testing</groupId>
   <artifactId>git-demo</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <scm>
+    <connection>scm:git:git@github.com:ozarov/git-demo.git</connection>
+    <developerConnection>scm:git:git@github.com:ozarov/git-demo.git</developerConnection>
+    <url>https://github.com/ozarov/git-demo</url>
+    <tag>HEAD</tag>
+  </scm>
+  <ciManagement>
+    <system>Travis CI</system>
+    <url>https://travis-ci.org/aozarov/git-demo</url>
+  </ciManagement>
+  <issueManagement>
+ 	<url>https://github.com/aozarov/git-demo/issues</url>
+	<system>GitHub Issues</system>
+  </issueManagement>
   <dependencies>
     <dependency>
       <groupId>com.google.http-client</groupId>
@@ -90,6 +104,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <github.global.server>github</github.global.server>
   </properties>
   <pluginRepositories>
     <pluginRepository>
@@ -191,6 +206,22 @@
           <target>1.7</target>
           <encoding>UTF-8</encoding>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.github</groupId>
+	<artifactId>site-maven-plugin</artifactId>
+	<version>0.9</version>
+	<configuration>
+	  <message>Creating site for ${project.version}</message>
+	</configuration>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>site</goal>
+            </goals>
+            <phase>site</phase>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

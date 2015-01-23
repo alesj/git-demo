@@ -16,8 +16,6 @@
 
 package com.google.gcloud.storage;
 
-import java.nio.ByteBuffer;
-
 public interface Bucket {
 
   String id();
@@ -36,11 +34,11 @@ public interface Bucket {
 
   void updateDefaultObjectAcl();
 
-  void delete(String... objects);
+  void delete(String... objectName);
 
-  void compose(Iterable<String> source, String dest);
+  void compose(Iterable<String> sourceNames, String destName);
 
-  void copy(String source, StorageObject.Key dest);
+  void copy(String sourceName, StorageObject.Key destKey);
 
 
   // TODO (ozarov): consider replace with Object that has a reference to bucket and name
@@ -49,7 +47,9 @@ public interface Bucket {
   //void copy(String source, String bucket, String dest);
   // Also consider read with an offset (and limit).
 
-  void put(String name, ByteBuffer bytes);
+  StorageObject get(String objectName);
+
+  void set(StorageObject object);
 
   // TODO: add listing
 }

@@ -15,8 +15,6 @@ branches:
   only:
     - master
 
-script: mvn verify
-
 after_success:
   - mvn site --settings target/travis/settings.xml
   - mvn clean cobertura:cobertura coveralls:report

@@ -46,6 +46,7 @@ public interface StorageObject {
     private Bucket bucket;
     private Acl acl;
     private String name;
+    private ByteBuffer content;
 
     public Builder() {
 
@@ -65,6 +66,11 @@ public interface StorageObject {
       this.acl = acl;
       return this;
     }
+
+    public Builder content(ByteBuffer content) {
+      this.content = content;
+      return this;
+    }
   }
   // builder will have an option to populate content and set acl, bucket, name,..
 
@@ -73,4 +79,8 @@ public interface StorageObject {
   Acl acl();
 
   ByteBuffer content();
+
+  void set(ByteBuffer content);
+
+
 }

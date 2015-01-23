@@ -20,5 +20,5 @@ public interface StorageService {
 
   Iterable<Bucket> listBuckets();
 
-  Bucket getBucket(String bucket);
+  Bucket getBucket(String bucketName);
 }

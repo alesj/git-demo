@@ -18,6 +18,7 @@ package com.google.gcloud.storage;
 
 import java.nio.ByteBuffer;
 
+// TODO: add  equals,hashCode, toString, serializable
 public interface StorageObject {
 
   class Key {
@@ -41,7 +42,7 @@ public interface StorageObject {
     }
   }
 
-  class Builder {
+  abstract class Builder {
 
     private Bucket bucket;
     private Acl acl;
@@ -71,8 +72,11 @@ public interface StorageObject {
       this.content = content;
       return this;
     }
+
+    public abstract StorageObject build();
   }
-  // builder will have an option to populate content and set acl, bucket, name,..
+
+  boolean exists();
 
   Key key();
 
@@ -80,7 +84,11 @@ public interface StorageObject {
 
   ByteBuffer content();
 
-  void set(ByteBuffer content);
+  void save();
 
+  void delete();
 
+  InputChannel getInputChannel();
+
+  OutputChannel getOutputChannel();
 }

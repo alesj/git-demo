@@ -16,6 +16,8 @@
 
 package com.google.gcloud.storage;
 
+import java.util.Iterator;
+
 public interface Bucket {
 
   String id();
@@ -36,9 +38,9 @@ public interface Bucket {
 
   void delete(String... objectName);
 
-  void compose(Iterable<String> sourceNames, String destName);
+  void compose(Iterable<String> sourceObjectNames, String destObjectName);
 
-  void copy(String sourceName, StorageObject.Key destKey);
+  void copy(String sourceObjectName, StorageObject.Key destObjectKey);
 
 
   // TODO (ozarov): consider replace with Object that has a reference to bucket and name
@@ -47,9 +49,14 @@ public interface Bucket {
   //void copy(String source, String bucket, String dest);
   // Also consider read with an offset (and limit).
 
+  // returns null if not exists
   StorageObject get(String objectName);
 
-  void set(StorageObject object);
+  Iterator<StorageObject> get(String... objectName);
+
+  InputChannel getInputChannel(String ObjectName);
+
+  OutputChannel getOutputChannel(String ObjectName);
 
   // TODO: add listing
 }

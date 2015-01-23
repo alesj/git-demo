@@ -4,7 +4,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ozarov.testing</groupId>
   <artifactId>git-demo</artifactId>
+  <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
+  <name>Open311 GeoReport wrapper</name>
+  <url>https://github.com/aozarov/git-demourl>
+  <description>
+    Java idiomatic client for Google Cloud Platform services.
+  </description>
   <scm>
     <connection>scm:git:git@github.com:aozarov/git-demo.git</connection>
     <developerConnection>scm:git:git@github.com:aozarov/git-demo.git</developerConnection>
@@ -214,20 +220,69 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>com.github.github</groupId>
-	<artifactId>site-maven-plugin</artifactId>
-	<version>0.10</version>
-	<configuration>
-	  <message>Creating site for ${project.version}</message>
-	</configuration>
-	<executions>
-	  <execution>
-	    <goals>
-	      <goal>site</goal>
-            </goals>
-            <phase>site</phase>
-          </execution>
-        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.13</version>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>6.2</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.4</version>
+        <configuration>
+          <reportPlugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-project-info-reports-plugin</artifactId>
+              <version>2.8</version>
+              <configuration>
+                <dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+                <dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>2.10.1</version>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-surefire-report-plugin</artifactId>
+              <version>2.18.1</version>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-checkstyle-plugin</artifactId>
+              <version>2.13</version>
+              <configuration>
+                <configLocation>checkstyle.xml</configLocation>
+                <failOnViolation>false</failOnViolation>
+              </configuration>
+            </plugin>
+          </reportPlugins>
+        </configuration>
+      </plugin>
+    <plugin>
+      <groupId>com.github.github</groupId>
+      <artifactId>site-maven-plugin</artifactId>
+      <version>0.10</version>
+      <configuration>
+        <message>Creating site for ${project.version}</message>
+      </configuration>
+      <executions>
+        <execution>
+          <goals>
+            <goal>site</goal>
+          </goals>
+          <phase>site</phase>
+        </execution>
+      </executions>
       </plugin>
     </plugins>
   </build>

@@ -18,8 +18,8 @@ branches:
 script: mvn verify
 
 after_success:
-  - mvn clean cobertura:cobertura coveralls:report
   - mvn site --settings target/travis/settings.xml
+  - mvn clean cobertura:cobertura coveralls:report
 
 env:
   global:

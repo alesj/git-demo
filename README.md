@@ -12,7 +12,7 @@ Java idiomatic client for Google Cloud Platform services. Supported APIs include
 > Note: This package is a work-in-progress, and may occasionally
 > make backwards-incompatible changes.
 
-Documentation and examples are available [here](https://github.com/GoogleCloudePlatform/gcloud-java/gh-pages/apidocs).
+Documentation and examples are available [here](https://aozarov.github.com/git-demo/apidocs).
 
 ## Google Cloud Datastore
 

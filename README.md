@@ -2,6 +2,7 @@ Google Cloud for Java
 =====================
 
 [![Build Status](https://travis-ci.org/aozarov/git-demo.svg?branch=master)](https://travis-ci.org/aozarov/git-demo)
+[![Coverage Status](https://coveralls.io/repos/aozarov/git-demo/badge.svg)](https://coveralls.io/r/aozarov/git-demo)
 
 Java idiomatic client for Google Cloud Platform services. Supported APIs include:
 

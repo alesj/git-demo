@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+<project
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+    xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ozarov.testing</groupId>
   <artifactId>git-demo</artifactId>
   <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Open311 GeoReport wrapper</name>
-  <url>https://github.com/aozarov/git-demourl>
+  <name>GCloud Java</name>
+  <url>https://github.com/aozarov/git-demo</url>
   <description>
     Java idiomatic client for Google Cloud Platform services.
   </description>
@@ -22,8 +24,8 @@
     <url>https://travis-ci.org/aozarov/git-demo</url>
   </ciManagement>
   <issueManagement>
- 	<url>https://github.com/aozarov/git-demo/issues</url>
-	<system>GitHub Issues</system>
+    <url>https://github.com/aozarov/git-demo/issues</url>
+    <system>GitHub Issues</system>
   </issueManagement>
   <dependencies>
     <dependency>
@@ -118,6 +120,11 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <github.global.server>github</github.global.server>
   </properties>
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-fluido-skin</artifactId>
+    <version>1.3.1</version>
+  </skin>
   <pluginRepositories>
     <pluginRepository>
       <releases>
@@ -146,7 +153,7 @@
                 <java classname="com.google.gcloud.datastore.LocalGcdHelper">
                   <arg value="START"/>
                   <classpath>
-                    <pathelement path="${test_classpath}" />
+                    <pathelement path="${test_classpath}"/>
                   </classpath>
                 </java>
               </target>
@@ -164,7 +171,7 @@
                 <java classname="com.google.gcloud.datastore.LocalGcdHelper">
                   <arg value="STOP"/>
                   <classpath>
-                    <pathelement path="${test_classpath}" />
+                    <pathelement path="${test_classpath}"/>
                   </classpath>
                 </java>
               </target>
@@ -220,6 +227,31 @@
         </configuration>
       </plugin>
       <plugin>
+        <groupId>org.eluder.coveralls</groupId>
+        <artifactId>coveralls-maven-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <formats>
+            <format>xml</format>
+            <format>html</format>
+          </formats>
+          <aggregate>true</aggregate>
+          <instrumentation>
+            <ignoreTrivial>true</ignoreTrivial>
+            <includes>
+              <include>com/google/gcloud/**/*.class</include>
+            </includes>
+          </instrumentation>
+          <check />
+          <maxmem>256m</maxmem>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>2.13</version>
@@ -265,24 +297,29 @@
                 <failOnViolation>false</failOnViolation>
               </configuration>
             </plugin>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>cobertura-maven-plugin</artifactId>
+              <version>2.6</version>
+            </plugin>
           </reportPlugins>
         </configuration>
       </plugin>
-    <plugin>
-      <groupId>com.github.github</groupId>
-      <artifactId>site-maven-plugin</artifactId>
-      <version>0.10</version>
-      <configuration>
-        <message>Creating site for ${project.version}</message>
-      </configuration>
-      <executions>
-        <execution>
-          <goals>
-            <goal>site</goal>
-          </goals>
-          <phase>site</phase>
-        </execution>
-      </executions>
+      <plugin>
+        <groupId>com.github.github</groupId>
+        <artifactId>site-maven-plugin</artifactId>
+        <version>0.10</version>
+        <configuration>
+          <message>Creating site for ${project.version}</message>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>site</goal>
+            </goals>
+            <phase>site</phase>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

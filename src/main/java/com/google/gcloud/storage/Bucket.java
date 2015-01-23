@@ -24,25 +24,24 @@ public interface Bucket {
 
   String name();
 
+  Cors cors();
+
   Acl acl();
 
   Acl defaultObjectAcl();
 
-  Cors cors();
+  void updateCors(Cors cors);
 
-  void updateDefaultObjectAcl();
   void updateAcl(Acl acl);
 
+  void updateDefaultObjectAcl();
 
-
-
-
-
-  void delete(Key... objectKey);
+  void delete(String... objects);
 
   void compose(Iterable<String> source, String dest);
 
-  void copy(String source, String dest);
+  void copy(String source, StorageObject.Key dest);
+
 
   // TODO (ozarov): consider replace with Object that has a reference to bucket and name
   // that object can return its own meta-data, update its own meta-data, replace its content

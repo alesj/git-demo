@@ -20,6 +20,52 @@ import java.nio.ByteBuffer;
 
 public interface StorageObject {
 
+  class Key {
+
+    // TODO: add builder, factory method, toURL, from URL, equals,hashCode, toString, serializable
+    private final String bucket;
+    private final String name;
+
+
+    Key(Bucket bucket, String name) {
+      this.bucket = bucket.name();
+      this.name = name;
+    }
+
+    public String bucket() {
+      return bucket;
+    }
+
+    public String name() {
+      return name;
+    }
+  }
+
+  class Builder {
+
+    private Bucket bucket;
+    private Acl acl;
+    private String name;
+
+    public Builder() {
+
+    }
+
+    public Builder name(String name) {
+      this.name = name;
+      return this;
+    }
+
+    public Builder bucket(Bucket bucket) {
+      this.bucket = bucket;
+      return this;
+    }
+
+    public Builder acl(Acl acl) {
+      this.acl = acl;
+      return this;
+    }
+  }
   // builder will have an option to populate content and set acl, bucket, name,..
 
   Key key();
@@ -27,5 +73,4 @@ public interface StorageObject {
   Acl acl();
 
   ByteBuffer content();
-
 }

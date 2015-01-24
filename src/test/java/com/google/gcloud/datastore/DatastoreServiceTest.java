@@ -42,7 +42,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @RunWith(JUnit4.class)
-public class DatastoreServiceIntegrationTest {
+public class DatastoreServiceTest {
 
   private static final String DATASET = LocalGcdHelper.DEFAULT_DATASET;
   private static final String KIND1 = "kind1";

@@ -10,6 +10,8 @@ before_install:
 
 install: mvn install -DskipTests=true
 
+script: mvn verify
+
 # whitelist
 branches:
   only:

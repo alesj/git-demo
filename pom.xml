@@ -1,13 +1,10 @@
 <?xml version="1.0"?>
-<project
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ozarov.testing</groupId>
   <artifactId>git-demo</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>GCloud Java</name>
   <url>https://github.com/aozarov/git-demo</url>
   <description>
@@ -17,7 +14,7 @@
     <connection>scm:git:git@github.com:aozarov/git-demo.git</connection>
     <developerConnection>scm:git:git@github.com:aozarov/git-demo.git</developerConnection>
     <url>https://github.com/aozarov/git-demo</url>
-    <tag>HEAD</tag>
+    <tag>git-demo-0.0.1</tag>
   </scm>
   <ciManagement>
     <system>Travis CI</system>

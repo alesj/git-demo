@@ -149,48 +149,6 @@
         </executions>
       </plugin>
       <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.8</version>
-        <executions>
-          <execution>
-            <id>before-test</id>
-            <phase>pre-integration-test</phase>
-            <configuration>
-              <target>
-                <property name="test_classpath" refid="maven.test.classpath"/>
-                <java classname="com.google.gcloud.datastore.LocalGcdHelper">
-                  <arg value="START"/>
-                  <classpath>
-                    <pathelement path="${test_classpath}"/>
-                  </classpath>
-                </java>
-              </target>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>after-integration-test</id>
-            <phase>post-integration-test</phase>
-            <configuration>
-              <target>
-                <property name="test_classpath" refid="maven.test.classpath"/>
-                <java classname="com.google.gcloud.datastore.LocalGcdHelper">
-                  <arg value="STOP"/>
-                  <classpath>
-                    <pathelement path="${test_classpath}"/>
-                  </classpath>
-                </java>
-              </target>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <version>2.5</version>
       </plugin>
@@ -319,7 +277,7 @@
         <artifactId>site-maven-plugin</artifactId>
         <version>0.10</version>
         <configuration>
-          <message>Creating site for ${project.artifcatId} ${project.version}</message>
+          <message>Creating site for ${project.artifactId} ${project.version}</message>
         </configuration>
         <executions>
           <execution>

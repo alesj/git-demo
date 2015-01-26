@@ -18,8 +18,7 @@ branches:
     - master
 
 after_success:
-  - mvn site --settings target/travis/settings.xml
-  - mvn clean cobertura:cobertura coveralls:report
+  - mvn clean cobertura:cobertura coveralls:report site --settings target/travis/settings.xml
 
 env:
   global:

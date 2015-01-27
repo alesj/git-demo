@@ -60,20 +60,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.storage.InputChannel.java">com/google/gcloud/storage/InputChannel.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  2
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.BlobValue.java">com/google/gcloud/datastore/BlobValue.java</a>
                 </td>
                 <td>
@@ -81,6 +67,20 @@ under the License.
                 </td>
                 <td>
                   0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.storage.InputChannel.java">com/google/gcloud/storage/InputChannel.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
                 </td>
                 <td>
                   0
@@ -102,7 +102,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.ProjectionEntity.java">com/google/gcloud/datastore/ProjectionEntity.java</a>
+                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.DatastoreBatchWriter.java">com/google/gcloud/datastore/DatastoreBatchWriter.java</a>
                 </td>
                 <td>
                   0
@@ -116,7 +116,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.DatastoreBatchWriter.java">com/google/gcloud/datastore/DatastoreBatchWriter.java</a>
+                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.ProjectionEntity.java">com/google/gcloud/datastore/ProjectionEntity.java</a>
                 </td>
                 <td>
                   0
@@ -494,7 +494,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.EntityValue.java">com/google/gcloud/datastore/EntityValue.java</a>
+                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.BatchImpl.java">com/google/gcloud/datastore/BatchImpl.java</a>
                 </td>
                 <td>
                   0
@@ -508,7 +508,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.BatchImpl.java">com/google/gcloud/datastore/BatchImpl.java</a>
+                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.EntityValue.java">com/google/gcloud/datastore/EntityValue.java</a>
                 </td>
                 <td>
                   0
@@ -676,6 +676,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.DatastoreHelper.java">com/google/gcloud/datastore/DatastoreHelper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.TransactionImpl.java">com/google/gcloud/datastore/TransactionImpl.java</a>
                 </td>
                 <td>
@@ -697,20 +711,6 @@ under the License.
                 </td>
                 <td>
                   0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/aozarov/git-demo/checkstyle.html#com.google.gcloud.datastore.DatastoreHelper.java">com/google/gcloud/datastore/DatastoreHelper.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  3
                 </td>
                 <td>
                   0

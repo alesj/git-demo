@@ -84,6 +84,49 @@ public abstract class TransactionOption implements Serializable {
     }
   }
 
+  static final class ExternalTx extends TransactionOption {
+
+    private static final long serialVersionUID = 1L;
+
+    private final transient ExternalTransactions.Transaction tx;
+
+    public enum Type {
+      JTA(new ExternalTransactions.JTATransaction()),
+      JTS(new ExternalTransactions.JTSTransaction());
+
+      private final ExternalTransactions.Transaction tx;
+
+      Type(ExternalTransactions.Transaction tx) {
+        this.tx = tx;
+      }
+
+      ExternalTransactions.Transaction getTx() {
+        return tx;
+      }
+    }
+
+    public ExternalTx(Type type) {
+      this.tx = type.getTx().create();
+    }
+      
+    @Override
+    BatchOption toBatchWriteOption() {
+      return null;
+    }
+
+    void begin() {
+      tx.begin();
+    }
+
+    void commit() {
+      tx.commit();
+    }
+
+    void rollback() {
+      tx.rollback();
+    }
+  }
+
   TransactionOption() {
     // package protected
   }
@@ -98,6 +141,14 @@ public abstract class TransactionOption implements Serializable {
 
   public static IsolationLevel snapshot() {
     return new IsolationLevel(IsolationLevel.Level.SNAPSHOT);
+  }
+
+  public static ExternalTx jta() {
+    return new ExternalTx(ExternalTx.Type.JTA);
+  }
+
+  public static ExternalTx jts() {
+    return new ExternalTx(ExternalTx.Type.JTS);
   }
 
   static Map<Class<? extends TransactionOption>, TransactionOption> asImmutableMap(

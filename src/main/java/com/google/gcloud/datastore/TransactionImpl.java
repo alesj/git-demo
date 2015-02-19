@@ -33,6 +33,7 @@ final class TransactionImpl extends BaseDatastoreBatchWriter implements Transact
   private final DatastoreServiceImpl datastore;
   private final ByteString transaction;
   private final boolean force;
+  private final TransactionOption.ExternalTx externalTx;
   private boolean rolledback;
 
   static class ResponseImpl implements Transaction.Response {
@@ -66,7 +67,11 @@ final class TransactionImpl extends BaseDatastoreBatchWriter implements Transact
       requestPb.setIsolationLevel(isolationLevel.level().toPb());
     }
     ForceWrites forceWrites = (ForceWrites) optionsMap.get(TransactionOption.ForceWrites.class);
-    force = forceWrites == null ? false : forceWrites.force();
+    force = forceWrites != null && forceWrites.force();
+    externalTx = (TransactionOption.ExternalTx) optionsMap.get(TransactionOption.ExternalTx.class);
+    if (externalTx != null) {
+      externalTx.begin();
+    }
     transaction = datastore.requestTransactionId(requestPb);
   }
 
@@ -103,6 +108,9 @@ final class TransactionImpl extends BaseDatastoreBatchWriter implements Transact
     requestPb.setTransaction(transaction);
     requestPb.setMutation(mutationPb);
     DatastoreV1.CommitResponse responsePb = datastore.commit(requestPb.build());
+    if (externalTx != null) {
+      externalTx.commit();
+    }
     deactivate();
     return new ResponseImpl(responsePb);
   }
@@ -114,6 +122,9 @@ final class TransactionImpl extends BaseDatastoreBatchWriter implements Transact
     }
     validateActive();
     datastore.rollbackTransaction(transaction);
+    if (externalTx != null) {
+      externalTx.rollback();
+    }
     deactivate();
     rolledback = true;
   }
